@@ -12,8 +12,6 @@ local get_branch_name = function()
     return vim.trim(job:sync()[1])
   end)
 
-  print(result)
-
   if ok then
     return result
   end
