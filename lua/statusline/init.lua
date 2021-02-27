@@ -81,7 +81,7 @@ M.set_active = function(self)
   local mode = color .. current_mode
   local file_name = colors.file_name .. self.get_file_name()
   local line_col = colors.bg .. self.get_ln_col()
-  local branch_name = get_branch_name()
+  local branch_name = get_branch_name() or ''
 
   return table.concat({
     mode, file_name,
