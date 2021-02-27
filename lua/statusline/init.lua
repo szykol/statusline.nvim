@@ -70,7 +70,7 @@ M.get_ln_col = function(self)
 end
 
 M.set_inactive = function(self)
-  return ' %F '
+  return ' %f '
 end
 
 M.set_active = function(self)
