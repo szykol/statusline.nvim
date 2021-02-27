@@ -47,13 +47,13 @@ M.get_current_mode = function(self)
     ['R']  = {'Replace', 'R'};
     ['Rv'] = {'V·Replace', 'V'};
     ['c']  = {'Command', 'C'};
-    ['cv'] = {'Vim Ex ', 'V'};
-    ['ce'] = {'Ex ', 'E'};
-    ['r']  = {'Prompt ', 'P'};
-    ['rm'] = {'More ', 'M'};
-    ['r?'] = {'Confirm ', 'C'};
-    ['!']  = {'Shell ', 'S'};
-    ['t']  = {'Terminal ', 'T'};
+    ['cv'] = {'Vim Ex', 'V'};
+    ['ce'] = {'Ex', 'E'};
+    ['r']  = {'Prompt', 'P'};
+    ['rm'] = {'More', 'M'};
+    ['r?'] = {'Confirm', 'C'};
+    ['!']  = {'Shell', 'S'};
+    ['t']  = {'Terminal', 'T'};
   }
 
   local current_mode = vim.fn.mode()
