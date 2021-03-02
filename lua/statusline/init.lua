@@ -61,22 +61,21 @@ M.get_current_mode = function(self)
   return string.format('[%s]', modes[current_mode][1]), color
 end
 
-M.get_file_name = function(self)
+M.get_file_name = function(_)
   return ' %f '
 end
 
-M.get_ln_col = function(self)
+M.get_ln_col = function(_)
   return ' [%l:%c] '
 end
 
-M.set_inactive = function(self)
+M.set_inactive = function(_)
   return ' %f '
 end
 
 M.set_active = function(self)
-  local separator = ' '
   local colors = self.colors
-  
+
   local current_mode, color = self:get_current_mode()
   local mode = color .. current_mode
   local file_name = colors.file_name .. self.get_file_name()
@@ -91,7 +90,7 @@ M.set_active = function(self)
   })
 end
 
-start = function()
+local start = function()
   set_highlights()
   Statusline = setmetatable(M, {
     __call = function(statusline, mode)
