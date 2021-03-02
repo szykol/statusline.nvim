@@ -66,7 +66,17 @@ M.get_file_name = function(_)
 end
 
 M.get_ln_col = function(_)
-  return ' [%l:%c] '
+  return '%l:%c'
+end
+
+M.get_file_type = function(_)
+  local file_type = vim.bo.filetype
+
+  return file_type
+end
+
+M.get_percentage = function(_)
+  return '%%%p'
 end
 
 M.set_inactive = function(_)
@@ -79,14 +89,17 @@ M.set_active = function(self)
   local current_mode, color = self:get_current_mode()
   local mode = color .. current_mode
   local file_name = colors.file_name .. self.get_file_name()
-  local line_col = colors.bg .. self.get_ln_col()
+  local line_col = self.get_ln_col()
   local branch_name = get_branch_name() or ''
+  local file_type = self.get_file_type()
+  local percentage = self.get_percentage()
 
   return table.concat({
     mode, file_name,
     colors.bg, branch_name,
     "%=",
-    line_col
+    file_type, ' ',
+    colors.file_name, '[', percentage, ' ', line_col, ']',
   })
 end
 
