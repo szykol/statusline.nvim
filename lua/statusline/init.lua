@@ -8,7 +8,7 @@ M.colors = {
   mode          = '%#Mode#',
   file_name     = '%#Filename#',
 
-  -- ['i']     = '%#InsertMode#',
+  ['i']     = '%#InsertMode#',
 }
 
 local set_hl = function(group, options)
@@ -24,9 +24,9 @@ local set_highlights = function()
     {'BG', { fg = '#EBDBB2', bg = '#343434' }},
     {'BG_I', { fg = '#3C3836', bg = '#928374' }},
     {'Mode', { bg = '#403C3C', fg = '#EBDBB2', gui="bold" }},
-    {'Filename', { bg = '#343434', fg = '#9B9889' }},
+    {'Filename', { bg = '#403C3C', fg = '#9B9889' }},
 
-    {'InsertMode', { bg = '#403C3C', fg = '#FFFFFF' }},
+    {'InsertMode', { bg = '#403C3C', fg = '#b8ecff' }},
   }
   for _, highlight in pairs(highlights) do
     set_hl(highlight[1], highlight[2])
@@ -90,8 +90,8 @@ M.set_active = function(self)
   local mode = color .. current_mode
   local file_name = colors.file_name .. self.get_file_name()
   local line_col = self.get_ln_col()
-  local branch_name = get_branch_name() or ''
-  local file_type = self.get_file_type()
+  local branch_name = color .. get_branch_name() or ''
+  local file_type = color .. self.get_file_type()
   local percentage = self.get_percentage()
 
   return table.concat({
