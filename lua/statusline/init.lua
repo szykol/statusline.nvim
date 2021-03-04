@@ -90,13 +90,14 @@ M.set_active = function(self)
   local mode = color .. current_mode
   local file_name = colors.file_name .. self.get_file_name()
   local line_col = self.get_ln_col()
-  local branch_name = color .. get_branch_name() or ''
+  local branch_name = get_branch_name() or ''
+  branch_name = color .. branch_name
   local file_type = color .. self.get_file_type()
   local percentage = self.get_percentage()
 
   return table.concat({
     mode, file_name,
-    colors.bg, branch_name,
+    branch_name,
     "%=",
     file_type, ' ',
     colors.file_name, '[', percentage, ' ', line_col, ']',
