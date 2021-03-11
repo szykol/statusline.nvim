@@ -26,7 +26,7 @@ local set_highlights = function()
     {'Mode', { bg = '#403C3C', fg = '#EBDBB2', gui="bold" }},
     {'Filename', { bg = '#403C3C', fg = '#9B9889' }},
 
-    {'InsertMode', { bg = '#403C3C', fg = '#b8ecff' }},
+    {'InsertMode', { bg = '#403C3C', fg = '#b8ecff', gui="bold" }},
   }
   for _, highlight in pairs(highlights) do
     set_hl(highlight[1], highlight[2])
@@ -39,7 +39,7 @@ M.get_current_mode = function(self)
     ['no'] = {'N·Pending', 'N'} ;
     ['v']  = {'Visual', 'V' };
     ['V']  = {'V·Line', 'V' };
-    [''] = {'V·Block', 'V'}; -- this is not ^V, but it's , they're different
+    [''] = {'V·Block', 'V'}; -- this is not ^V, but it's , they're different
     ['s']  = {'Select', 'S'};
     ['S']  = {'S·Line', 'S'};
     [''] = {'S·Block', 'S'}; -- same with this one, it's not ^S but it's 
