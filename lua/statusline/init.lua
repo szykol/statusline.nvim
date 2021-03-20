@@ -22,7 +22,7 @@ end
 local set_highlights = function()
   local highlights = {
     {'BG', { fg = '#EBDBB2', bg = '#343434' }},
-    {'BG_I', { fg = '#3C3836', bg = '#928374' }},
+    {'BG_I', { fg = '#EBDBB2', bg = '#403C3C' }},
     {'Mode', { bg = '#403C3C', fg = '#EBDBB2', gui="bold" }},
     {'Filename', { bg = '#403C3C', fg = '#9B9889' }},
 
@@ -79,8 +79,9 @@ M.get_percentage = function(_)
   return '%%%p'
 end
 
-M.set_inactive = function(_)
-  return ' %f '
+M.set_inactive = function(self)
+  local inactive_color = self.colors.bg_inactive;
+  return inactive_color .. ' %f '
 end
 
 M.set_active = function(self)
