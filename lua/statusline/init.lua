@@ -58,7 +58,8 @@ M.get_current_mode = function(self)
 
   local current_mode = vim.fn.mode()
   local color = self.colors[current_mode] or self.colors.mode
-  return string.format('[%s]', modes[current_mode][1]), color
+  local mode_str = string.upper(modes[current_mode][1])
+  return string.format('  %s ', mode_str), color
 end
 
 M.get_file_name = function(_)
@@ -92,13 +93,16 @@ M.set_active = function(self)
   local file_name = colors.file_name .. self.get_file_name()
   local line_col = self.get_ln_col()
   local branch_name = get_branch_name() or ''
-  branch_name = color .. branch_name
+  branch_name = self.colors.file_name .. branch_name
   local file_type = color .. self.get_file_type()
   local percentage = self.get_percentage()
 
   return table.concat({
-    mode, file_name,
+    mode,
     branch_name,
+    "%=",
+    file_name,
+    "%m%r",
     "%=",
     file_type, ' ',
     colors.file_name, '[', percentage, ' ', line_col, ']',

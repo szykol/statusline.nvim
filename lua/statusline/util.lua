@@ -13,7 +13,7 @@ local get_branch_name = function()
   end)
 
   if ok then
-    return result
+    return string.format(" | %s | ", result)
   end
 end
 
